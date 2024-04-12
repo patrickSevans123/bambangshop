@@ -77,6 +77,14 @@ This is the place for you to write reflections:
 ### Mandatory (Publisher) Reflections
 
 #### Reflection Publisher-1
+1. In the Observer pattern diagram explained by the Head First Design Pattern book, Subscriber is defined as an interface. Explain based on your understanding of Observer design patterns, do we still need an interface (or trait in Rust) in this BambangShop case, or a single Model struct is enough? </br>
+Subscriber perlu diimplementasikan sebagai sebuah interface pada aplikasi Bambang Shop karena subscriber pasti terdiri dari berbagai jenis subscriber yang men-subscribe subject berbeda. Penggunaan interface ini dilakukan untuk menerapkan Dependency Inversion Principle dimana setiap kode harus bergantung pada abstraksi, bukan implementasi konkrit.
+
+2. id in Program and url in Subscriber is intended to be unique. Explain based on your understanding, is using Vec (list) sufficient or using DashMap (map/dictionary) like we currently use is necessary for this case? </br>
+Dalam konteks id dan url yang unique pada Subscriber. DashMap akan menjadi opsi terbaik karena dipastikan bahwa setiap elemen pada DashMap merupakan elemen yang unik. Di sisi lain, Vec memerlukan waktu yang cukup kompleks, yaitu O(n) untuk memeriksa apakah suatu elemen memiliki duplikat. Vec juga tidak di-design untuk melakukan multi-threading. Oleh karena itu, DashMap lebih baik digunakan untuk kasus ini.
+
+3. When programming using Rust, we are enforced by rigorous compiler constraints to make a thread-safe program. In the case of the List of Subscribers (SUBSCRIBERS) static variable, we used the DashMap external library for thread safe HashMap. Explain based on your understanding of design patterns, do we still need DashMap or we can implement Singleton pattern instead? </br>
+Singleton pattern dan DashMap memiliki peranan yang berbeda pada kode. Singleton pattern berfungsi untuk memastikan suatu class hanya memiliki sebuah instance. DashMap sendiri memiiliki fungsi untuk menyimpan data sebagai dictionary. Dalam kasus ini, kita membutuhkan keduanya, yaitu singleton pattern dan DashMap. Singleton digunakan agar class hanya memiliki sebuah instance dan DashMap digunakan agar suatu instance dapat diakses dalam proses multithreading.
 
 #### Reflection Publisher-2
 
