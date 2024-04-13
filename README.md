@@ -87,5 +87,14 @@ Dalam konteks id dan url yang unique pada Subscriber. DashMap akan menjadi opsi 
 Singleton pattern dan DashMap memiliki peranan yang berbeda pada kode. Singleton pattern berfungsi untuk memastikan suatu class hanya memiliki sebuah instance. DashMap sendiri memiiliki fungsi untuk menyimpan data sebagai dictionary. Dalam kasus ini, kita membutuhkan keduanya, yaitu singleton pattern dan DashMap. Singleton digunakan agar class hanya memiliki sebuah instance dan DashMap digunakan agar suatu instance dapat diakses dalam proses multithreading.
 
 #### Reflection Publisher-2
+1. In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both data storage and business logic. Explain based on your understanding of design principles, why we need to separate “Service” and “Repository” from a Model? </br>
+Pemisahan "Service" dan "Repository" dilakukan untuk memenuhi prinsip Single Responsibility Principle dimana sebuah objek dari suatu role hanya bisa melakukan yang role itu lakukan. Service melakukan bagiannya dimana Service mengurus logika aplikasi yang memproses sebuah input dari bagian lain untuk mengupdate status dari model terkait. Repository juga melakukan bagiannya untuk mengurus penyimpanan data, terutama mengenai menyimpan model ke dalam database.
+
+2. What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) affect the code complexity for each model? </br>
+Apabila kita hanya menggunakan Model dan tidak menggunakan interaksi antar model seperti Program, Subscriber, dan Notification, satu model dengan yang lain akan berinteraksi secara langsung. Artinya, hal ini akan meningkatkan dependensi (coupling), melanggar prinsip Single Responsibility Principle dan menyebabkan kesulitan dalam melakukan maintenance.
+
+3. Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects. </br>
+Postman merupakan suatu aplikasi yang berfungsi untuk mengirimkan request ke aplikasi kita dan melihat response dari aplikasi tersebut. Aplikasi ini biasanya digunakan untuk mengecek apakah aplikasi me-response suatu request dari pengguna dengan benar.
+
 
 #### Reflection Publisher-3
